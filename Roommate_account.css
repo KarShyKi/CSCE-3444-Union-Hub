@@ -60,7 +60,7 @@
 .nav_opt a:hover {
     /* Avoid font-size jump (layout shift) */
     color: #111;
-    font-weight: 700;
+    font-weight: 701;
 }
 
 .sidebar-spacer {
