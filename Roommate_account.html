@@ -9,7 +9,7 @@
     </head>
     <body>
         <!-- for top bar-->
-        <nav class="navbar navbar-dark fixed-top position:fixed">
+        <nav class="navbar navbar-dark fixed-top">
         <div class="container-fluid">
             <div class="navbar ">
                 <span class="navbar-brand mt-0 h1">
@@ -36,21 +36,41 @@
 
             <div class="sidebar-spacer d-none d-lg-block"></div>
 
-
+<!--main content area-->
             <div class="main_container">
-                <div class="container-fluid">
-                    <div class="row">
+                <div class="container-fluid h-100">
+                    <div class="row h-100">
+                        <!--for back ground-->
                         <div class="col-12 col-md-8 col-lg-4 mainbg">
                             <div class="container-fluid">
-                                <div class=" row">
-                                    <div class="col-12 col-md-8 roomarte"></div>
+                                <div class=" row align-items-stretch h-100">
+                                    <!--pic upload-->
+                                    <div class="col-12 col-lg-7">
+                                        <div class = "border rounder roommate_details flex-fill">
+
+                                            <!--photo here-->
+            
+                                                <label class="upload-box"> 
+                                                    <input type="file" id="photoInput" accept="image/*" capture="environment" hidden>Click to take or upload photo</label>
+                                               
+                                            
+                                        </div>
+                                    </div>
+
+                                    <!--login info section-->
+                                    <div class = "col-12 col-lg-5">
+                                        <div class="border rounder roommate_details flex-fill">
+                                            <p>here is the content next</p>
+                                        </div>
+                                    </div>
+
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 

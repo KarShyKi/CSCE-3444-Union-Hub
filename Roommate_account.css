@@ -14,9 +14,10 @@
 /* NAVBAR */
 .navbar{
     top: 0;
-    height: var(--nav-h);
+    height: 2rem;
+    background-color: #575454;
     z-index: 1030;
-    background-color: #000;
+    background-color: 575454;
     /* lower than sidebar */
 }
 
@@ -27,7 +28,7 @@
     bottom: 0;
     left: 0;
     width: var(--side-w);
-    background: #c1c954;
+    background: rgb(12, 194, 97);
     border-right: 1px solid #dcdcdc;
     padding: 16px;
     display: flex;
@@ -86,26 +87,62 @@
 
 /* Full-height box inside main */
 .mainbg {
-    min-height: calc(100vh - var(--nav-h) - 2rem);
+    height: calc(100vh - var(--nav-h) - 2rem);
     width: 100%;
-    background-color: rgba(0, 0, 0, .07);
+    background-color: rgba(0, 0, 0, .05);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
     color: #111;
     border: .5px solid #e0e0e0;
-    /* your old border was missing style */
-    border-radius: 8px;
+    border-radius: 1rem;
+    overflow: hidden;
+    padding: 1rem;
     /* 2% can look odd; use px for consistency */
 }
+.roommate_details {
+    background-color: rgba(0,0,0, 0.1);
+    height: 100%;
+    padding: 1.5rem;
+    justify-items: center;
+    align-items: center;
+    border-radius: 0.75rem;
 
+   
+}
+
+.upload-box
+{
+   display: flex;
+   border-radius: 0.5rem;
+   height: 50%;
+   width: 100%;
+   background-color: white;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+}
+.upload-box:hover {
+    border-color: #198754;
+    box-shadow: 0 0 15px rgba(25, 135, 84, 0.4);
+    background-color: #f8f9fa;
+    transform: scale(1.02);
+    font-style: italic;
+    transition: all 0.4s ease;
+    
+}
+
+.upload-label
+{
+    cursor: pointer;
+}
 /* DESKTOP (lg+) — make sidebar fixed and offset main */
 @media (min-width: 992px) {
 
     .main_container {
         margin-left: var(--side-w);
-        /* ✅ align beside fixed sidebar */
+      
         overflow-y: auto;
-        /* main scrolls, page doesn’t shift */
+ 
     }
 }
+
