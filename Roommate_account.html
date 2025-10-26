@@ -26,11 +26,31 @@
                     UNION HUB
                 </div>
                 <div class="nav_opt">
-                    <a href="#" class="d-block mb-2"> Home</a>
-                    <a href="#" class="d-block mb-2"> Browse</a>
-                    <a href="#" class="d-block mb-2"> Profile</a>
-                    <a href="#" class="d-block mb-2"> Notification</a>
-                    <a href="#" class="d-block mb-2"> Inbox</a>
+                    <a href="#" class="d-block mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-house-fill"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
+                        <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
+                    </svg> Home</a>
+                    <a href="#" class="d-block mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg> Browse</a>
+                    <a href="#" class="d-block mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill"
+                        viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                    </svg> Profile</a>
+                    <a href="#" class="d-block mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
+                    </svg> Notification</a>
+                    <a href="#" class="d-block mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
+                    </svg> Inbox</a>
                 </div>
             </div>
 
@@ -38,35 +58,99 @@
 
 <!--main content area-->
             <div class="main_container">
-                <div class="container-fluid h-100">
+                <div class="container-fluid">
                     <div class="row h-100">
                         <!--for back ground-->
+                        
                         <div class="col-12 col-md-8 col-lg-4 mainbg">
-                            <div class="container-fluid">
+                            <form action="/submit" method="post" class="container-fluid">
                                 <div class=" row align-items-stretch h-100">
                                     <!--pic upload-->
-                                    <div class="col-12 col-lg-7">
+                                    <div class="col-12 col-lg-7"> 
                                         <div class = "border rounder roommate_details flex-fill">
-
                                             <!--photo here-->
-            
-                                                <label class="upload-box"> 
-                                                    <input type="file" id="photoInput" accept="image/*" capture="environment" hidden>Click to take or upload photo</label>
-                                               
                                             
+                                                <label for="photoInput" class="upload-box">
+                                                    <input type="file" id="photoInput" accept="image/*" capture="environment" hidden>Click to take or upload photo
+                                                </label>
+                                           
+                                            <!--Description-->
+                                        <div class="user_description">
+                                            <label for="userDesc" class="form-label mb-2">Description</label>
+                                            <textarea id="userDesc" class="form-control" placeholder="Write details..."></textarea>
                                         </div>
+                                                
+                                        </div>                   
                                     </div>
+                                    
 
                                     <!--login info section-->
                                     <div class = "col-12 col-lg-5">
-                                        <div class="border rounder roommate_details flex-fill">
-                                            <p>here is the content next</p>
+                                        <div class="border rounder roommate_details width:100%">
+                                          
+                                                <!--prefix (if any)-->
+                                                <div class ="mb-3 prefix">
+                                                    <label for="prefix" class = "form-label">Prefix</label>
+                                                    <select class = "form-select" id ="prefix" name = "prefix" >
+                                                        <option value="" disabled selected>Select...</option>
+                                                        <option>None</option>
+                                                        <option>Mr.</option>
+                                                        <option>Mrs.</option>
+                                                        <option>Miss</option>
+                                                        <option>Ms.</option>
+                                                        <option>Mx.</option>
+                                                        <option>Dr.</option>
+                                                        <option>Prof.</option>
+                                                        <option>Rev.</option>
+                                                        <option>Capt.</option>
+                                                        <option>Col.</option>
+                                                        <option>Maj.</option>
+                                                        <option>Lt.</option>
+                                                        <option>Sir</option>
+                                                        <option>Dame</option>
+                                                    </select>
+                                                </div> 
+                                                <!-- User full name (required)-->
+                                                <div class = "mb-3">
+                                                    <label for = "userName" class = "form-label"> Full Name*</label>
+                                                    <input type="text" class = "form-control" id ="userName" placeholder="Enter full name" required>
+                                                </div> 
+                                                <!--Email (required)-->
+                                                <div class ="mb-3">
+                                                    <label for = "userEmail" class = "form-label"> Email Address*</label>
+                                                    <input type = "email" class = "form-control" id = "userEmail" placeholder = "Enter email" required>                            
+                                                </div> 
+                                                <!--Phone number (optional)-->
+                                                <div class="mb-3">
+                                                    <label for="userPhone" class="form-label"> Phone Number</label>
+                                                    <input type="number" class="form-control" id="userPhone" placeholder="Enter phone number">
+                                                </div> 
+                                                <!--Budget-->
+                                                <div class="mb-3 budget">
+                                                    <label for="budget" class="form-label" >Budget*</label>
+                                                    <select class="form-select" id="budget" name="budget" required>
+                                                        <option value="" disabled selected>Choose a range...</option>
+                                                        <option>Under $500</option>
+                                                        <option>$500 - $1000</option>
+                                                        <option>$1000 - $1500</option>
+                                                        <option>$1500 - $2000</option>
+                                                        <option>$2000 - $2500</option>
+                                                        <option>Above $2500</option>
+                                                    </select>
+                                                </div> 
+                                                <p style="color: red; font-size: 12px;"> "*" Indicates required fileds</p>
+                                                <div class = "d-flex justify-content-end">
+                                                    <input class="btn btn-primary button" type="submit" value="Submit">
+                                                </div>
+                                                
+                                                
+                                                                            
                                         </div>
                                     </div>
 
 
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

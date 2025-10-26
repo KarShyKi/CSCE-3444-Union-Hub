@@ -33,7 +33,7 @@
     padding: 16px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     z-index: 1045;
 }
 
@@ -47,7 +47,7 @@
 /* Nav links */
 .nav_opt {
     margin-top: 30px;
-    text-align: center;
+    text-align: left;
 }
 
 .nav_opt a {
@@ -135,6 +135,32 @@
 {
     cursor: pointer;
 }
+
+.user_description {
+    flex: 1;
+    display: inline;
+    flex-direction: column;
+}
+
+
+
+
+.prefix
+{
+    width: 13rem;
+}
+
+.budget
+{
+    width: 13rem;
+}
+
+.button
+{
+    justify-items: right;
+}
+
+
 /* DESKTOP (lg+) — make sidebar fixed and offset main */
 @media (min-width: 992px) {
 
