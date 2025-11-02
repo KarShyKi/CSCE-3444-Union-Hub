@@ -10,7 +10,6 @@ def submit_form(request):
     if request.method == 'POST':
         name = request.POST.get('name', '')
         email = request.POST.get('email', '')
-        message = request.POST.get('message', '')
-        UserSubmission.objects.create(name=name, email=email, message=message)
+        UserSubmission.objects.create(name=name, email=email)
         return JsonResponse({'success': True})
     return JsonResponse({'success': False, 'error': 'POST required'})
