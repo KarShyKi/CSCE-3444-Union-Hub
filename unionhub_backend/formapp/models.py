@@ -10,9 +10,10 @@ BUDGET_CHOICES = [
 ]
 # Create your models here.
 class UserSubmission(models.Model):
+    prefix = models.CharField(max_length=100, blank=True)
     name = models.CharField(max_length=100)
     email = models.EmailField()
-    phone = models.CharField(max_length=20,blank=True)
+    phone = models.CharField(max_length=20, blank=True)
     budget = models.CharField(max_length=20, choices=BUDGET_CHOICES)
     description = models.TextField()
     picture = models.ImageField(upload_to ='submission/', blank=True, null = True)
@@ -20,4 +21,4 @@ class UserSubmission(models.Model):
 
     def __str__(self):
         return self.name
- 
+        return render(request, "Roommate_account.html")
