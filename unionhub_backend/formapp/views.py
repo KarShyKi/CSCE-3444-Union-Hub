@@ -15,7 +15,7 @@ def submit_form(request):
         budget = request.POST.get('budget','')
         picture = request.FILES.get('picture', '')
         description = request.POST.get('description', '')
-        UserSubmission.objects.create(
+        submission = UserSubmission.objects.create(
             prefix=prefix,
             name=name, 
             email=email,
@@ -25,5 +25,9 @@ def submit_form(request):
             description=description,
 
         )
-        return JsonResponse({'success': True})
+        return redirect('profile', submission_id = submission.id)
     return JsonResponse({'success': False, 'error': 'POST required'})
+
+def profile_view(request, submission_id):
+    submission = get_object_or_404(UserSubmission, id = submission_id)
+    return render(request, 'Roommate_profile.html', {'submission': submission})
