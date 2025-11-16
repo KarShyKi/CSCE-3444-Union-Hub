@@ -1,8 +1,6 @@
 :root {
     --nav-h: 56px;
-    /* keep this in sync with .navbar height */
     --side-w: 240px;
-    /* desktop sidebar width */
 }
 
 *,
@@ -11,16 +9,15 @@
     box-sizing: border-box;
 }
 
-/* NAVBAR */
+
 .navbar{
     top: 0;
     height: var(--nav-h);
     z-index: 1030;
     background-color: #000;
-    /* lower than sidebar */
 }
 
-/* SIDEBAR (mobile-first: not fixed) */
+
 .side_bar {
     position: fixed;
     top: 0;
@@ -36,14 +33,14 @@
     z-index: 1045;
 }
 
-/* Sidebar text */
+
 .side_bar .logo_name {
     font-size: 30px;
     font-weight: 700;
     margin: 0;
 }
 
-/* Nav links */
+
 .nav_opt {
     margin-top: 30px;
     text-align: center;
@@ -58,7 +55,7 @@
 }
 
 .nav_opt a:hover {
-    /* Avoid font-size jump (layout shift) */
+    
     color: #111;
     font-weight: 700;
 }
@@ -68,12 +65,12 @@
     display: none;
 }
 
-/* MAIN (use your class name consistently) */
+
 .main_container {
-    /* push below fixed navbar */
+   
     padding-top: calc(var(--nav-h) + 1rem);
 
-    /* prevent row negative margins from bleeding */
+    
     padding-left: calc(1rem + var(--bs-gutter-x, 1.5rem)/2);
     padding-right: calc(1rem + var(--bs-gutter-x, 1.5rem)/2);
 
@@ -81,10 +78,8 @@
     background-color: #fff;
     overflow-x: hidden;
     margin-left: 0;
-    /* desktop offset added in media query */
 }
 
-/* Full-height box inside main */
 .mainbg {
     min-height: calc(100vh - var(--nav-h) - 2rem);
     width: 100%;
@@ -94,18 +89,16 @@
     justify-content: center;
     color: #111;
     border: .5px solid #e0e0e0;
-    /* your old border was missing style */
+   
     border-radius: 8px;
-    /* 2% can look odd; use px for consistency */
+    
 }
 
-/* DESKTOP (lg+) — make sidebar fixed and offset main */
+
 @media (min-width: 992px) {
 
     .main_container {
         margin-left: var(--side-w);
-        /* ✅ align beside fixed sidebar */
         overflow-y: auto;
-        /* main scrolls, page doesn’t shift */
     }
 }
