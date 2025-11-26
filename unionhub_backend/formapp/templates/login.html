@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sign Up | Union Hub</title>
+    <title>Login | Union Hub</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,13 +15,13 @@
             height: 100vh;
         }
 
-        .signup-box {
+        .login-box {
             background: white;
             padding: 2rem;
             border-radius: 12px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             width: 100%;
-            max-width: 400px;
+            max-width: 380px;
         }
 
         .title {
@@ -41,41 +41,30 @@
 </head>
 <body>
 
-    <div class="signup-box">
+    <div class="login-box">
         <div class="title">THE UNION HUB</div>
-        <div class="sub">Create your account 👋</div>
+        <div class="sub">!!Welcome back!!</div>
 
-        <form action="/signup" method="post">
-            <!-- Full Name -->
-            <div class="mb-3">
-                <label for="fullName" class="form-label">Full Name*</label>
-                <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required>
-            </div>
-
+        <form method="POST" action="{% url 'login_user' %}">
+            {% csrf_token %}
             <!-- Email -->
             <div class="mb-3">
-                <label for="email" class="form-label">Email*</label>
-                <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                <label for="email" class="form-label">Username*</label>
+                <input type="text" id="email" class="form-control" placeholder="Enter your email" name ="username"required>
             </div>
 
             <!-- Password -->
             <div class="mb-3">
                 <label for="password" class="form-label">Password*</label>
-                <input type="password" id="password" class="form-control" placeholder="Create a password" required>
+                <input type="password" id="password" class="form-control" placeholder="Enter your password" name="password" required>
             </div>
 
-            <!-- Confirm Password -->
-            <div class="mb-3">
-                <label for="confirmPassword" class="form-label">Confirm Password*</label>
-                <input type="password" id="confirmPassword" class="form-control" placeholder="Re-enter password" required>
-            </div>
-
-            <!-- Sign Up button -->
-            <button type="submit" class="btn btn-primary w-100 mt-2">Sign Up</button>
+            <!-- Login button -->
+            <button type="submit" class="btn btn-primary w-100 mt-2">Log In</button>
 
             <div class="text-center mt-3">
-                <small>Already have an account?
-                    <a href="login.html">Log in</a>
+                <small>Don't have an account?
+                    <a href="{% url 'signup' %}">Sign up</a>
                 </small>
             </div>
         </form>
