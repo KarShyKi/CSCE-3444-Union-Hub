@@ -73,7 +73,7 @@
                 
                     <!-- Profile Picture -->
                     {% if submission.picture %}
-                    <img src="{{ submission.picture.url }}" alt="Profile Picture" class="rounded-circle shadow mb-3"
+                    <img src="{{ submission.item_picture.url }}" alt="Profile Picture" class="rounded-circle shadow mb-3"
                         style="width: 200px; height: 200px; object-fit: cover;">
                     {% else %}
                     <img src="{% static 'formapp/default_user.png' %}" alt="Default Picture" class="rounded-circle shadow mb-3"

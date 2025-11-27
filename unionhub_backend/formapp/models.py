@@ -22,3 +22,14 @@ class UserSubmission(models.Model):
     def __str__(self):
         return self.name
         
+#for lost and found item
+class Load_and_found_submission(models.Model):
+    item_picture = models.ImageField(upload_to ='submission/', blank=True, null = True)
+    item_desc = models.TextField()
+    item_name = models.CharField(max_length=100)
+    item_found = models.CharField(max_length=100)
+    item_submitted = models.CharField(max_length=100)
+    item_contact = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.item_name

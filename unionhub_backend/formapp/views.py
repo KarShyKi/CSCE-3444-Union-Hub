@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-
+from .models import Load_and_found_submission
 from .models import UserSubmission
 
 
@@ -112,3 +112,63 @@ def home(request):
 def roommates_list(request):
     submissions = UserSubmission.objects.all().order_by('-created_at')
     return render(request, 'Roommates.html', {'submissions': submissions})
+
+
+
+# -------------------------
+# LOST AND FOUND VIEWS
+# -------------------------
+
+def lost_found_list(request):
+    items = Load_and_found_submission.objects.all().order_by('-id')
+    return render(request, "Lost_and_found_items.html", {"items": items})
+
+
+def lost_found_item(request, id):
+    item = get_object_or_404(Load_and_found_submission, id=id)
+    return render(request, "Lost_and_found_item.html", {"item": item})
+
+
+def lost_found_submit(request):
+    if request.method == "POST":
+        item_picture = request.FILES.get('item_picture')
+        item_desc = request.POST.get('item_desc')
+        item_name = request.POST.get('item_name')
+        item_found = request.POST.get('item_found')
+        item_submitted = request.POST.get('item_submitted')
+        item_contact = request.POST.get('item_contact')
+
+        item = Load_and_found_submission.objects.create(
+            item_picture=item_picture,
+            item_desc=item_desc,
+            item_name=item_name,
+            item_found=item_found,
+            item_submitted=item_submitted,
+            item_contact=item_contact
+        )
+
+        return redirect("lost_found_item", id=item.id)
+
+    return render(request, "Lost_and_found_account.html")
+
+
+def edit_lost_found_item(request, id):
+    item = get_object_or_404(Load_and_found_submission, id=id)
+
+    if request.method == "POST":
+        item.item_name = request.POST.get("item_name")
+        item.item_desc = request.POST.get("item_desc")
+        item.item_found = request.POST.get("item_found")
+        item.item_submitted = request.POST.get("item_submitted")
+        item.item_contact = request.POST.get("item_contact")
+
+        if request.FILES.get("item_picture"):
+            item.item_picture = request.FILES["item_picture"]
+
+        item.save()
+        return redirect("lost_found_item", id=item.id)
+
+    return render(request, "Lost_and_found_account.html", {
+        "item": item,
+        "edit": True
+    })

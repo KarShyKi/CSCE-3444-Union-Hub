@@ -1,5 +1,4 @@
 :root {
-    /*Pixel values for height and width*/
     --nav-h: 56px;
     --side-w: 240px;
 }
@@ -10,60 +9,38 @@
     box-sizing: border-box;
 }
 
-ul {
-    background-color: #00853E;
-    overflow: hidden;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-li {
-  display: inline-block;
-  text-align: center;
-  float: center;
-  padding: 0 15px;
-}
-
-/*Navbar settings*/
-.navbar{
+/* NAVBAR */
+.navbar {
     top: 0;
-    height: var(--nav-h);
+    height: 2rem;
+    background-color: #575454;
     z-index: 1030;
-    background-color: #000;
 }
 
-/*Sidebar settings*/
+/* SIDEBAR */
 .side_bar {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     width: var(--side-w);
-    background: #c1c954;
+    background: rgb(12, 194, 97);
     border-right: 1px solid #dcdcdc;
     padding: 16px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     z-index: 1045;
 }
 
-/*Sidebar text settings*/
 .side_bar .logo_name {
     font-size: 30px;
     font-weight: 700;
-    margin: 0;
 }
 
-/*Navigation link settings*/
 .nav_opt {
     margin-top: 30px;
-    text-align: center;
 }
 
-/*Navigation link text settings*/
 .nav_opt a {
     text-decoration: none;
     color: #000;
@@ -74,7 +51,7 @@ li {
 
 .nav_opt a:hover {
     color: #111;
-    font-weight: 700;
+    font-weight: 701;
 }
 
 .sidebar-spacer {
@@ -82,34 +59,74 @@ li {
     display: none;
 }
 
-/*lostfound container settings*/
-.lostfound_container {
+/* MAIN */
+.main_container {
     padding-top: calc(var(--nav-h) + 1rem);
-
     padding-left: calc(1rem + var(--bs-gutter-x, 1.5rem)/2);
     padding-right: calc(1rem + var(--bs-gutter-x, 1.5rem)/2);
-
     min-height: calc(100vh - var(--nav-h));
     background-color: #fff;
     overflow-x: hidden;
-    margin-left: 0;
 }
 
-.lostfound_background {
-    min-height: calc(100vh - var(--nav-h) - 2rem);
+/* BACKGROUND WRAPPER */
+.mainbg {
+    height: calc(100vh - var(--nav-h) - 2rem);
     width: 100%;
-    background-color: rgba(0, 0, 0, .07);
+    background-color: rgba(0, 0, 0, .05);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #111;
-    border: .5px solid #e0e0e0;
-    border-radius: 8px;
+    border-radius: 1rem;
+    padding: 1.5rem;
 }
 
-/*Media width settings*/
-@media (min-width: 992px) {
+/* LOST & FOUND ITEM IMAGE */
+.item-image {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 1rem;
+    border: 2px solid #ddd;
+    background-color: white;
+}
 
+.item-image:hover {
+    transform: scale(1.03);
+    transition: 0.3s ease;
+}
+
+/* DETAILS CARD */
+.item-card {
+    max-width: 500px;
+    border-radius: 15px;
+    padding: 1.5rem;
+    background-color: white;
+}
+
+.item-card h3 {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.item-card ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.item-card li {
+    margin-bottom: 0.5rem;
+    font-size: 17px;
+}
+
+.item-label {
+    font-weight: 700;
+    color: #333;
+}
+
+/* RESPONSIVE */
+@media (min-width: 992px) {
     .main_container {
         margin-left: var(--side-w);
         overflow-y: auto;
