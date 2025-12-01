@@ -3,62 +3,118 @@
 
 <head>
     {% load static %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'formapp/Roommate_profile.css' %}">
-    <title>Roomate profile</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <title>Union Hub | Dashboard</title>
+    <link rel="stylesheet" href="{% static 'formapp/Roommate_profile.css' %}">
+
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --side-w: 240px;
+            --nav-h: 56px;
+        }
+
+        body {
+            background: #f9f9f9;
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background-color: #575454;
+            height: var(--nav-h);
+        }
+
+        /* SIDEBAR */
+        .side_bar {
+            width: var(--side-w);
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            padding: 20px 15px;
+            background: rgb(12, 194, 97);
+            color: black;
+        }
+
+        .logo_name {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .nav_opt {
+            margin-top: 30px;
+        }
+
+        .nav_opt a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 4px;
+            text-decoration: none;
+            font-size: 17px;
+            color: black;
+        }
+
+        .nav_opt a:hover {
+            font-weight: bold;
+        }
+
+        /* MAIN CONTENT */
+        .main_container {
+            margin-left: var(--side-w);
+            padding: 90px 40px;
+            min-height: 100vh;
+        }
+
+        .card-custom {
+            padding: 25px;
+            height: 100%;
+            border-radius: 14px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.10);
+            transition: 0.3s;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+        }
+    </style>
 </head>
 
 <body>
-    <!-- for top bar-->
-    <nav class="navbar navbar-dark fixed-top">
-        <div class="container-fluid">
-            <div class="navbar ">
-                <span class="navbar-brand mt-0 h1">
 
-                </span>
-            </div>
-        </div>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-dark fixed-top d-flex align-items-center px-3">
+        <span class="navbar-brand">UNION HUB</span>
     </nav>
 
-    <!-- for side bar-->
-
+    <!-- SIDEBAR -->
     <div class="side_bar">
-        <div class="logo_name">
-            UNION HUB
-        </div>
+        <div class="logo_name mb-3">UNION HUB</div>
+
         <div class="nav_opt">
-            <a href="#" class="d-block mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17"
-                    fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
-                    <path
-                        d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
-                    <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
-                </svg> Home</a>
-            <a href="#" class="d-block mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path
-                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                </svg> Browse</a>
-            <a href="#" class="d-block mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                </svg> Profile</a>
-            <a href="#" class="d-block mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
-                    <path
-                        d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
-                </svg> Notification</a>
-            <a href="#" class="d-block mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
-                    <path
-                        d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
-                </svg> Inbox</a>
+            <a href="{% url 'dashboard' %}">
+                <i class="bi bi-house-fill"></i> Home
+            </a>
+
+            <a href="{% url 'roommates' %}">
+                <i class="bi bi-search"></i> Browse Roommates
+            </a>
+
+            <a href="{% url 'lost_found_list' %}">
+                <i class="bi bi-binoculars-fill"></i> Lost & Found
+            </a>
         </div>
     </div>
-
-    <div class="sidebar-spacer d-none d-lg-block"></div>
 
     <!--main content area-->
     <div class="main_container">

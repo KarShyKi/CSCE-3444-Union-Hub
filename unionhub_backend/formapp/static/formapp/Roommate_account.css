@@ -12,7 +12,7 @@
 }
 
 /* NAVBAR */
-.navbar{
+.navbar {
     top: 0;
     height: 2rem;
     background-color: #575454;
@@ -99,28 +99,29 @@
     padding: 1rem;
     /* 2% can look odd; use px for consistency */
 }
+
 .roommate_details {
-    background-color: rgba(0,0,0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     height: 100%;
     padding: 1.5rem;
     justify-items: center;
     align-items: center;
     border-radius: 0.75rem;
 
-   
+
 }
 
-.upload-box
-{
-   display: flex;
-   border-radius: 0.5rem;
-   height: 50%;
-   width: 100%;
-   background-color: white;
-   justify-content: center;
-   align-items: center;
-   cursor: pointer;
+.upload-box {
+    display: flex;
+    border-radius: 0.5rem;
+    height: 50%;
+    width: 100%;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
+
 .upload-box:hover {
     border-color: #198754;
     box-shadow: 0 0 15px rgba(25, 135, 84, 0.4);
@@ -128,11 +129,10 @@
     transform: scale(1.02);
     font-style: italic;
     transition: all 0.4s ease;
-    
+
 }
 
-.upload-label
-{
+.upload-label {
     cursor: pointer;
 }
 
@@ -145,18 +145,15 @@
 
 
 
-.prefix
-{
+.prefix {
     width: 13rem;
 }
 
-.budget
-{
+.budget {
     width: 13rem;
 }
 
-.button
-{
+.button {
     justify-items: right;
 }
 
@@ -166,9 +163,8 @@
 
     .main_container {
         margin-left: var(--side-w);
-      
+
         overflow-y: auto;
- 
+
     }
 }
-
