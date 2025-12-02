@@ -38,7 +38,7 @@ STATICFILES_DIRS = [
 ]
 
 # Output location for collectstatic
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR / "static"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
