@@ -5,48 +5,44 @@ Django settings for unionhub_backend project.
 import os
 from pathlib import Path
 
-# -------------------------------------------------
-# PATHS
-# -------------------------------------------------
-
+# -----------------------------------------
+# BASE DIRECTORY
+# -----------------------------------------
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# -------------------------------------------------
+# -----------------------------------------
 # SECURITY
-# -------------------------------------------------
-
+# -----------------------------------------
 SECRET_KEY = 'django-insecure-j*v8gtv-^bl+_r3c$2q5vpk1dvzd1=fk%kr-h4(9gy&42j(ft_'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://csce-3444-union-hub-production.up.railway.app",
     "https://*.up.railway.app",
 ]
 
-# -------------------------------------------------
-# STATIC & MEDIA
-# -------------------------------------------------
-
+# -----------------------------------------
+# STATIC FILES  (Correct for Railway)
+# -----------------------------------------
 STATIC_URL = '/static/'
 
-# Django will collect EVERYTHING from this directory:
-STATICFILES_DIRS = [
-    BASE_DIR / "formapp" / "static",
-]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# Output location for collectstatic
-STATIC_ROOT = BASE_DIR / "static"
+# Leave empty — Django will find formapp/static/formapp/* automatically
+STATICFILES_DIRS = []
 
+# -----------------------------------------
+# MEDIA FILES
+# -----------------------------------------
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
 
-# -------------------------------------------------
+# -----------------------------------------
 # APPLICATIONS
-# -------------------------------------------------
-
+# -----------------------------------------
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -57,10 +53,9 @@ INSTALLED_APPS = [
     'formapp',
 ]
 
-# -------------------------------------------------
+# -----------------------------------------
 # MIDDLEWARE
-# -------------------------------------------------
-
+# -----------------------------------------
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -71,16 +66,18 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# -------------------------------------------------
-# URLS / WSGI
-# -------------------------------------------------
-
+# -----------------------------------------
+# URL CONFIG
+# -----------------------------------------
 ROOT_URLCONF = 'unionhub_backend.urls'
 
+# -----------------------------------------
+# TEMPLATES
+# -----------------------------------------
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # app templates are auto-detected
+        'DIRS': [],   # Auto-detect app templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -92,12 +89,14 @@ TEMPLATES = [
     },
 ]
 
+# -----------------------------------------
+# WSGI
+# -----------------------------------------
 WSGI_APPLICATION = 'unionhub_backend.wsgi.application'
 
-# -------------------------------------------------
+# -----------------------------------------
 # DATABASE
-# -------------------------------------------------
-
+# -----------------------------------------
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -105,36 +104,25 @@ DATABASES = {
     }
 }
 
-# -------------------------------------------------
-# AUTH / PASSWORDS
-# -------------------------------------------------
-
+# -----------------------------------------
+# PASSWORD VALIDATION
+# -----------------------------------------
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# -------------------------------------------------
-# LOCALIZATION
-# -------------------------------------------------
-
+# -----------------------------------------
+# INTERNATIONALIZATION
+# -----------------------------------------
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# -------------------------------------------------
-# AUTOFIELD
-# -------------------------------------------------
-
+# -----------------------------------------
+# AUTO FIELD
+# -----------------------------------------
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
