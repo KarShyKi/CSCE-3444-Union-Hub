@@ -28,7 +28,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "static",            # your static folder
+    BASE_DIR / 'formapp' / 'static',            # your static folder
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
