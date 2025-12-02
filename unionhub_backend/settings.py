@@ -5,17 +5,21 @@ Django settings for unionhub_backend project.
 import os
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# -------------------------------------------------
+# PATHS
+# -------------------------------------------------
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# -------------------------------------------------
+# SECURITY
+# -------------------------------------------------
+
 SECRET_KEY = 'django-insecure-j*v8gtv-^bl+_r3c$2q5vpk1dvzd1=fk%kr-h4(9gy&42j(ft_'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-PORT = os.environ.get("PORT", "8000")
 
 CSRF_TRUSTED_ORIGINS = [
     "https://csce-3444-union-hub-production.up.railway.app",
@@ -23,24 +27,24 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 # -------------------------------------------------
-# STATIC & MEDIA CONFIGURATION
+# STATIC & MEDIA
 # -------------------------------------------------
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = []
 
+# Django will collect EVERYTHING from this directory:
+STATICFILES_DIRS = [
+    BASE_DIR / "formapp" / "static",
+]
 
+# Output location for collectstatic
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# IMPORTANT: Do NOT include STATICFILES_DIRS
-# Django will automatically find app static folders
-# such as formapp/static/formapp/
-
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = BASE_DIR / "media"
 
 # -------------------------------------------------
-# Applications
+# APPLICATIONS
 # -------------------------------------------------
 
 INSTALLED_APPS = [
@@ -53,6 +57,10 @@ INSTALLED_APPS = [
     'formapp',
 ]
 
+# -------------------------------------------------
+# MIDDLEWARE
+# -------------------------------------------------
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -63,12 +71,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# -------------------------------------------------
+# URLS / WSGI
+# -------------------------------------------------
+
 ROOT_URLCONF = 'unionhub_backend.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # Django auto-loads app templates
+        'DIRS': [],  # app templates are auto-detected
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -94,7 +106,7 @@ DATABASES = {
 }
 
 # -------------------------------------------------
-# PASSWORD VALIDATION
+# AUTH / PASSWORDS
 # -------------------------------------------------
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -113,7 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # -------------------------------------------------
-# INTERNATIONALIZATION
+# LOCALIZATION
 # -------------------------------------------------
 
 LANGUAGE_CODE = 'en-us'
@@ -122,7 +134,7 @@ USE_I18N = True
 USE_TZ = True
 
 # -------------------------------------------------
-# AUTO FIELD
+# AUTOFIELD
 # -------------------------------------------------
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
