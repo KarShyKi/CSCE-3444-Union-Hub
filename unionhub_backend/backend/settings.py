@@ -25,9 +25,12 @@ SECRET_KEY = 'django-insecure-j*v8gtv-^bl+_r3c$2q5vpk1dvzd1=fk%kr-h4(9gy&42j(ft_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+PORT = os.environ.get("PORT", "8000")
+
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'formapp', 'static'),]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR , 'media')
