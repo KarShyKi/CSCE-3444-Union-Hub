@@ -1,0 +1,84 @@
+:root {
+    --nav-h: 56px;
+    --side-w: 240px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* NAVBAR */
+.navbar {
+    top: 0;
+    height: 2rem;
+    background-color: #575454;
+    z-index: 1030;
+}
+
+/* SIDEBAR */
+.side_bar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: var(--side-w);
+    background: rgb(12, 194, 97);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1045;
+}
+
+.logo_name {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.nav_opt a {
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    display: block;
+    padding: .5rem 0;
+}
+
+.nav_opt a:hover {
+    color: #111;
+    font-weight: 700;
+}
+
+/* MAIN CONTENT */
+.main_container {
+    padding-top: calc(var(--nav-h) + 1rem);
+    padding-left: calc(1rem + var(--bs-gutter-x)/2);
+    margin-left: 0;
+    min-height: 100vh;
+}
+
+/* ITEM CARDS */
+.roommate-card {
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.roommate-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin: auto;
+    display: block;
+    border: 3px solid #fff;
+}
+
+@media (min-width: 992px) {
+    .main_container {
+        margin-left: var(--side-w);
+    }
+}
