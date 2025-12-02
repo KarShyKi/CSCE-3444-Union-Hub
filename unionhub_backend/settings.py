@@ -19,26 +19,26 @@ PORT = os.environ.get("PORT", "8000")
 
 CSRF_TRUSTED_ORIGINS = [
     "https://csce-3444-union-hub-production.up.railway.app",
-    "https://*.up.railway.app"
+    "https://*.up.railway.app",
 ]
 
-# -----------------------------
+# -------------------------------------------------
 # STATIC & MEDIA CONFIGURATION
-# -----------------------------
+# -------------------------------------------------
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",   # optional global static folder
-]
+# IMPORTANT: Do NOT include STATICFILES_DIRS
+# Django will automatically find app static folders
+# such as formapp/static/formapp/
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# -----------------------------
+# -------------------------------------------------
 # Applications
-# -----------------------------
+# -------------------------------------------------
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -65,7 +65,7 @@ ROOT_URLCONF = 'unionhub_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],     # Django will automatically find templates in each app
+        'DIRS': [],  # Django auto-loads app templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,9 +79,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'unionhub_backend.wsgi.application'
 
-# -----------------------------
+# -------------------------------------------------
 # DATABASE
-# -----------------------------
+# -------------------------------------------------
 
 DATABASES = {
     'default': {
@@ -90,9 +90,9 @@ DATABASES = {
     }
 }
 
-# -----------------------------
+# -------------------------------------------------
 # PASSWORD VALIDATION
-# -----------------------------
+# -------------------------------------------------
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -109,17 +109,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# -----------------------------
+# -------------------------------------------------
 # INTERNATIONALIZATION
-# -----------------------------
+# -------------------------------------------------
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# -----------------------------
+# -------------------------------------------------
 # AUTO FIELD
-# -----------------------------
+# -------------------------------------------------
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
