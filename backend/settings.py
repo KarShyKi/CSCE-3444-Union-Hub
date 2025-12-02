@@ -28,6 +28,11 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 PORT = os.environ.get("PORT", "8000")
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://csce-3444-union-hub-production.up.railway.app",
+    "https://*.up.railway.app"
+]
+
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
